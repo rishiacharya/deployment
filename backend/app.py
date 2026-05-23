@@ -3,6 +3,8 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Initialize FastAPI
 app = FastAPI()
@@ -18,7 +20,7 @@ app.add_middleware(
 
 # OpenAI Client
 client = OpenAI(
-    api_key=os.getenv("NEXUS_API_KEY"),
+    api_key=os.getenv("API_KEY"),
     base_url="https://apidev.navigatelabsai.com"
 )
 
